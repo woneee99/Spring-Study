@@ -13,6 +13,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
+    //@Bean memberService -> new MemoryMemberRepository
+    //@Bean orderService -> new MemoryMemberRepository
 
     @Bean
     public MemberService memberService(){
@@ -34,3 +36,5 @@ public class AppConfig {
         return new RateDiscountPolicy();
     }
 }
+
+
