@@ -30,7 +30,6 @@ public class IndexController {
         System.out.println("/test/login");
         PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
         System.out.println("principalDetails.getUser() = " + principalDetails.getUser());
-
         System.out.println("userDetails.getUsername() = " + userDetails.getUsername());
         return "세션 정보 확인하기";
     }
@@ -41,7 +40,6 @@ public class IndexController {
         OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal(); // 이게 안됨
         System.out.println("oAuth2User.getAttributes() = " + oAuth2User.getAttributes());
         System.out.println("oAuth2User.getAttributes() = " + oAuth2User.getAttributes());
-
         return "세션 정보 확인하기";
     }
 
@@ -51,7 +49,8 @@ public class IndexController {
     }
 
     @GetMapping("/user")
-    public @ResponseBody String user(){
+    public @ResponseBody String user(@AuthenticationPrincipal PrincipalDetails principalDetails){
+        System.out.println("principalDetails.getUser() = " + principalDetails.getUser());
         return "user";
     }
 
